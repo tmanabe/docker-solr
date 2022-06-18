@@ -1,4 +1,4 @@
-FROM solr:8.6.3
+FROM solr:8.11.1
 
 # For remote JVM debug
 EXPOSE 5005
