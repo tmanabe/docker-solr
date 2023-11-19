@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="esci-ja-examples-config" version="1.6">
+    <!-- Ref: https://github.com/apache/solr/blob/branch_9_2/solr/server/solr/configsets/_default/conf/managed-schema.xml -->
+
+    <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+    <field name="_version_" type="plong" indexed="false" stored="false"/>
+
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
+    <field name="example_id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+    <uniqueKey>example_id</uniqueKey>
+    <dynamicField name="*" type="string" indexed="true" stored="true"/>
+</schema>
