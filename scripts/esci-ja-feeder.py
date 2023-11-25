@@ -13,7 +13,7 @@ name_space = argument_parser.parse_args()
 parquet = read_parquet(name_space.parquet, filters=[("product_locale", "==", "jp")])
 
 N, buffer = parquet.shape[0] ** 0.5, []
-for named_tuple in parquet.itertuples():
+for named_tuple in parquet.itertuples(index=False):
     d = named_tuple._asdict()
     buffer.append(d)
     if (N < len(buffer)):
