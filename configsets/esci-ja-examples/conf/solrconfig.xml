@@ -6,11 +6,16 @@
 
     <lib dir="./lib"/>
 
+    <searchComponent name="demo2Component" class="io.github.tmanabe.demo2.Demo2SearchComponent"/>
+
     <requestHandler name="/select" class="solr.SearchHandler">
         <lst name="defaults">
             <str name="echoParams">explicit</str>
             <int name="rows">10</int>
         </lst>
+        <arr name="last-components">
+            <str>demo2Component</str>
+        </arr>
     </requestHandler>
 
     <schemaFactory class="ClassicIndexSchemaFactory"/>

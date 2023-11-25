@@ -8,5 +8,18 @@
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
     <field name="example_id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
     <uniqueKey>example_id</uniqueKey>
+
+    <fieldType name="float_array" class="io.github.tmanabe.demo2.FloatArrayField">
+        <analyzer>
+            <tokenizer class="io.github.tmanabe.stream.DistilBertJapaneseTokenizerFactory"/>
+            <filter class="io.github.tmanabe.stream.LineDistilBertTokenFilterFactory"/>
+            <filter class="io.github.tmanabe.stream.ByStringTokenSelectorFactory" string="last_hidden_state"/>
+            <filter class="io.github.tmanabe.stream.AveragePoolingTokenFilterFactory"/>
+            <filter class="io.github.tmanabe.stream.ReflectableVectorNormalizerTokenFilterFactory"/>
+        </analyzer>
+    </fieldType>
+    <field name="query_vector" type="float_array" docValues="true"/>
+    <copyField source="query" dest="query_vector"/>
+
     <dynamicField name="*" type="string" indexed="true" stored="true"/>
 </schema>
