@@ -15,7 +15,7 @@
             <filter class="io.github.tmanabe.stream.LineDistilBertTokenFilterFactory"/>
             <filter class="io.github.tmanabe.stream.ByNameTokenSelectorFactory" select="last_hidden_state"/>
             <filter class="io.github.tmanabe.stream.AveragePoolingTokenFilterFactory"/>
-            <filter class="io.github.tmanabe.stream.ReflectableVectorNormalizerTokenFilterFactory"/>
+            <filter class="io.github.tmanabe.stream.VectorNormalizerTokenFilterFactory"/>
         </analyzer>
     </fieldType>
     <field name="query_vector" type="float_array" docValues="true"/>
