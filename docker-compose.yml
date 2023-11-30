@@ -2,7 +2,7 @@ version: '3'
 
 services:
   solr:
-    image: solr:9.2.1
+    build: solr
     ports:
       - "5005:5005"
       - "8983:8983"
